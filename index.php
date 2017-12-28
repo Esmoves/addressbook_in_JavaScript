@@ -3,31 +3,29 @@
 <head>
 	<meta charset="UTF-8">
 	<meta http-equiv="content-type" content="text/html; charset=ISO-8859-1">
-	<meta content="width=device-width; initial-scale=1.0; maximum-scale=1.0;  user-scalable=0;" name="viewport">
+	<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
 	<title>AddressBook</title>
-	<link rel="stylesheet" href="./include/stylesheetAdressenboek.cs">
+	<link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet"> 
+	<link href="https://fonts.googleapis.com/css?family=Indie+Flower" rel="stylesheet"> 
+	<link rel="stylesheet" type="text/css" href="./include/stylesheetAdressenboek.cs">
 	<script src="./include/scriptAdressen.js"></script>
 </head>
 <body>
 	<div class="container">
 		<div class="sidemenu">
-			<a href="#">
-			  <div id="btn1" class="button">
-			    <button class="submenuSettings" onclick="settings()">settings</h1>
-			  </div>
-			</a>
-
-			<a href="#">
-			  <div id="btn2" class="button">
-			    <button class="submenuTutorial">tutorials</h1>
-			  </div>
-			</a>
-
-			<a href="#">
+			
 			  <div id="btn3" class="button">
-			    <button class="submenuAbout">about</h1>
+			    <button class="submenuAbout" id="about">about</h1>
 			  </div>
-			</a>
+			
+			  <div id="btn1" class="button">
+			    <button class="submenuSettings" id="settings">settings</h1>
+			  </div>
+			
+			  <div id="btn2" class="button">
+			    <button class="submenuTutorial" id="tutorial">tutorial</h1>
+			  </div>
+			
 		</div>
 	
 		<div class="title">
@@ -50,6 +48,40 @@
 				</li>
 			</ul>		
 		</div>	
+
+		<!-- hidden pages that show by changing the style to display:block by javascript as action on button -->
+		<div class="pageAbout">
+			<h1>About</h1>
+			<p>Thank you for using Keep In Touch! </p>
+			<p>This app is developed by A.E. Tijhoff as an assignment for CodeGorilla.</p>
+			<p> &copy 2018 A.E. Tijhoff All rights reserved</p>
+			<p>Please also check <a href="http://www.esmeraldatijhoff.nl" target="_blank">www.esmeraldatijhoff.nl</a></p>	
+		</div>
+			
+		<div class="pageSettings">
+			<h1>Settings</h1>
+			<p>Thank you for using Keep In Touch! </p>
+			<p>Delete all contacts by pressing <button class="deleteall">Delete All</button></p>
+			<p> &copy 2018 A.E. Tijhoff All rights reserved</p>
+			<p>Please also check <a href="http://www.esmeraldatijhoff.nl" target="_blank">www.esmeraldatijhoff.nl</a></p>	
+		</div>
+
+		<div class="pageTutorial">
+			<h1>Tutorial</h1>
+			<p>Thank you for using Keep In Touch! </p>
+			<p>With this app you can keep track of all your contacts. 
+				Click on the Add button in the main menu to add a contact. 
+				Fill in the fields. All fields execpt Country and Email, need to have some input before you can save the contact.
+				Click on Save to store the contact.
+				The contact will show up at the buttom of your contactlist.
+			</p>
+			<p> &copy 2018 A.E. Tijhoff All rights reserved</p>
+			<p>Please also check <a href="http://www.esmeraldatijhoff.nl" target="_blank">www.esmeraldatijhoff.nl</a></p>	
+		</div>
+		
+		
+
+		<!-- hidden div, only show when klick quick add button -->
 		<div class="quickaddForm">
 			<label for="familyName">Family name</label><input type="text" id="familyName" class="formFields">
 			<label for="firstName">First name</label><input type="text" id="firstName" class="formFields">
@@ -68,19 +100,8 @@
 
 		<div class="sendmail">
 			<!-- this is where the contacts wil show by name and when you send mail to them -->
+			<!-- does not function yet -->
 		</div>	
-
-		<div class="pages" id="pages">
-			<!--- this is where the pages will appear.
-				About
-				Tutorial
-				<p>Thank you for using Keep In Touch! </p>
-				<p>This app is developed by A.E. Tijhoff as an assignment for CodeGorilla.</p>
-				<p> &copy 2018 A.E. Tijhoff All rights reserved</p>
-				<p>Please also check <a href="http://www.esmeraldatijhoff.nl" target="_blank">www.esmeraldatijhoff.nl</a></p>
-			-->	
-		</div>
-			
 
 	</div>
 </body>
