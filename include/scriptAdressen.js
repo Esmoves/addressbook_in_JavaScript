@@ -1,95 +1,190 @@
 window.onload = function(){
-	// Buttons
+
+/************************************************************/
+/************************************************************/
+// TO DO: function addToBook needs pop-ups for user to signal which field need to be filled before sending
+// TO DO: Wijzig button (change) laten werken ***************/
+// TO DO: Mogelijkheid Send Mail maken **********************/
+// TO DO: Tutorial maken ************************************/
+// TO DO: about maken ***************************************/
+// TO DO: Settings maken ************************************/
+/************************************************************/
+/************************************************************/
+
+
+	// Get all the buttons
 	var quickAddBtn = document.getElementById('QuickAdd');
-	var quickAddFormDiv = document.querySelector('.quickaddForm')
 	var cancelBtn = document.getElementById('Cancel');
 	var AddBtn = document.getElementById('Add');
-	// Form Fields
-	var fullname = document.getElementById('fullname');
-	var phone = document.getElementById('phone');
+	var quickAddFormDiv = document.querySelector('.quickaddForm')
+
+	// Get all the information of the form fields
+	var familyname = document.getElementById('familyName');
+	var firstname = document.getElementById('firstName');
 	var address = document.getElementById('address');
+	var zipcode = document.getElementById('zip');
 	var city = document.getElementById('city');
+	var country = document.getElementById('country');
 	var email = document.getElementById('email');
-	// Divs etc.
+
+	// Start the adressbook. Display all contacts. Hidden when empty
+	// this contains the delete and the edit buttons
 	var addBookDiv = document.querySelector('.addbook');
 
+	// Storage Array. Hold al the JSON entries of the adresbook
+	var addressBook = [];
+
+	// Event Listener If you click on quickAd, show form
 	quickAddBtn.addEventListener("click", function(){
 		// display the form div
 		quickAddFormDiv.style.display = "block";
 	});
 
+	// eventlistener for cancel botton that is in the form. Click cancel to hide form again.
 	cancelBtn.addEventListener("click", function(){
 		quickAddFormDiv.style.display = "none";
 	});
 
+	// eventlistener, press 'add' to put content in JSON 
 	AddBtn.addEventListener("click", addToBook);
 
+	// Delete an entry
 	addBookDiv.addEventListener("click", removeEntry);
 
-	// Storage Array
-	var addressBook = [];
+	// change an entry
+	// doesnt work, kan maar 1 click op de div die aangeroepen wordt vanuit index.php
+	//  addBookDiv.addEventListener("click", changeEntry);
 
-	//localStorage['addbook'] = '[{"fullname":"Sachin B","email":"sachin@frameboxx.in","phone":"93828292","address":"something","city":"Chandigarh"}]';
 
-	function jsonStructure(fullname,phone,address,city,email){
-		this.fullname = fullname;
-		this.phone = phone;
+	// Make a JSON array
+	//Alternative methode localStorage['addbook'] = '[{"fullname":"A.E. Tijhoff","email":"tijhoff@mai.com","phone":"93828292","address":"something","city":"Chandigarh"}]';
+	function jsonStructure(familyname, firstname, address, zipcode, city, country, email){
+		this.familyname = familyname;
+		this.firstname = firstname;
 		this.address = address;
+		this.zipcode = zipcode;
 		this.city = city;
+		this.country = country;
 		this.email = email;
 	}
 
-	function addToBook(){
-		var isNull = fullname.value!='' && phone.value!='' && address.value!='' && city.value!='' && email.value!='';
-		if(isNull){
-			// format the input into a valid JSON structure
-			var obj = new jsonStructure(fullname.value,phone.value,address.value,city.value,email.value);
-			addressBook.push(obj);
-			localStorage['addbook'] = JSON.stringify(addressBook);
-			quickAddFormDiv.style.display = "none";
-			clearForm();
-			showAddressBook();
-		}
-	}
-
-	function removeEntry(e){
-		// Remove an entry from the addressbook
-		if(e.target.classList.contains('delbutton')){
-			var remID = e.target.getAttribute('data-id');
-			addressBook.splice(remID,1);
-			localStorage['addbook'] = JSON.stringify(addressBook);
-			showAddressBook();
-		}
-	}
-
-	function clearForm(){
+	// empty all fields with class formfield 
+	function clearForm(){		
 		var formFields = document.querySelectorAll('.formFields');
 		for(var i in formFields){
 			formFields[i].value = '';
+			}
 		}
+
+/* Confirmation for delete prompt */    		            
+	function removeEntry(e){
+	// Remove an entry from the addressbook when delete is pushed
+		if(e.target.classList.contains('delbutton')){		
+			var check = confirm("Are you sure?");
+        	if (check == true) { 	
+            	var remID = e.target.getAttribute('data-id');
+				addressBook.splice(remID,1);
+				localStorage['addbook'] = JSON.stringify(addressBook);
+				showAddressBook();
+       		 }
+       		 else {
+            	showAddressBook();
+       		 }
+		}
+  	}
+
+	function changeEntry(e){
+		// 
+		 document.write("Hallo");
+	/*	if(e.target.classList.contains('changebutton')){
+			var remID = e.target.getAttribute('data-id');
+			addressBook.splice(remID,1);
+			localStorage['addbook'] = JSON.stringify(addressBook);
+			
+			function addToBook(){
+				// Validate the input. make sure the form is filled. 
+				// email and coutrny is not required.
+				var isNull = familyname.value!='' && firstname.value!='' && address.value!='' && zipcode.value!= '' && city.value!='';
+				// if this gives a return of False, you need to have a pop up stating wich field needs to be filled before saving
+
+				// if isNull is true, add the input of the form to the array and localstorage
+				if(isNull){
+					// format the input into a valid JSON structure
+					// this will be like var obj = {"fullname":"Esmeralda Tijhoff","phone":"123456789":"address":"straat nummer"etc,}
+					var obj = new jsonStructure(familyname.value, firstname.value, address.value, zipcode.value, city.value, country.value, email.value);
+					addressBook.push(obj);
+					// store the string in the memory of the browser (localstorage) make the array into a string with JSON.stringify. 
+					localStorage['addbook'] = JSON.stringify(addressBook);
+					quickAddFormDiv.style.display = "none";
+
+					// clear the form from last input
+					clearForm();
+					showAddressBook();
+				}
+			}
+
+		} */
 	}
+ 
+
+	function addToBook(){
+			// Validate the input. make sure the form is filled. 
+			// email and coutrny is not required.
+			var isNull = familyname.value!='' && firstname.value!='' && address.value!='' && zipcode.value!= '' && city.value!='';
+			// if this gives a return of False, you need to have a pop up stating wich field needs to be filled before saving
+
+			// if isNull is true, add the input of the form to the array and localstorage
+			if(isNull){
+				// format the input into a valid JSON structure
+				// this will be like var obj = {"fullname":"Esmeralda Tijhoff","phone":"123456789":"address":"straat nummer"etc,}
+				var obj = new jsonStructure(familyname.value, firstname.value, address.value, zipcode.value, city.value, country.value, email.value);
+				addressBook.push(obj);
+				// store the string in the memory of the browser (localstorage) make the array into a string with JSON.stringify. 
+				localStorage['addbook'] = JSON.stringify(addressBook);
+				quickAddFormDiv.style.display = "none";
+				// clear the form from last input
+				clearForm();
+				showAddressBook();
+			}
+		}
+  		
+		
+	// SHOW the turorial and about pages when buttons are pushed
+	function settings(){
+		// Start the content of the Pages 
+		var pagesDiv = document.querySelector('.pages');
+		pagesDiv.innerHTML = '<p>Settings</p>';
+	}
+	
 
 	function showAddressBook(){
 		if(localStorage['addbook'] === undefined){
-			localStorage['addbook'] = '';
+			// initialize a string in localhost to avoid an error when you are running the code the first time
+			localStorage['addbook'] = '[]';
 		} else {
+			// Json process the string in an array of valid JSON objects
 			addressBook = JSON.parse(localStorage['addbook']);
 			// Loop over the array addressBook and insert into the page
 			addBookDiv.innerHTML = '';
 			for(var n in addressBook){
 				var str = '<div class="entry">';
-					str += '<div class="name"><p>' + addressBook[n].fullname + '</p></div>';
-					str += '<div class="email"><p>' + addressBook[n].email + '</p></div>';
-					str += '<div class="phone"><p>' + addressBook[n].phone + '</p></div>';
+					str += '<div class="familyname"><p>' + addressBook[n].familyname + ',</p></div>';
+					str += '<div class="firstname"><p> ' + addressBook[n].firstname + '</p></div>';
 					str += '<div class="address"><p>' + addressBook[n].address + '</p></div>';
+					str += '<div class="zipcode"><p>' + addressBook[n].zipcode + '</p></div>';
 					str += '<div class="city"><p>' + addressBook[n].city + '</p></div>';
+					str += '<div class="country"><p>' + addressBook[n].country + '</p></div>';
+					str += '<div class="email"><p>' + addressBook[n].email + '</p></div>';
+					
+					// a change button should be implemented here
+					str += '<div class="change"><a href="#" class="changebutton" data-id="' + n + '">Edit</a></div>';
+					// give all the delete buttons a n to identify which one is pushed for removeEntry
 					str += '<div class="del"><a href="#" class="delbutton" data-id="' + n + '">Delete</a></div>';
 					str += '</div>';
 				addBookDiv.innerHTML += str;
 			}
 		}
 	}
-
 	showAddressBook();
 
 }

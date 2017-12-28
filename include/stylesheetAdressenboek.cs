@@ -30,16 +30,6 @@ div.submenu{
   background-color: #F4ABF7;
 }
 
-h1.submenu {
-  font-family: verdana, sans-serif;
-  font-weight: bold;
-  font-size: 18px;
-  text-align: center;
-  font-variant: small-caps;
-  position: relative;
-  top: -1px;
-}
-
 a {
   text-decoration: none;
 }
@@ -58,14 +48,14 @@ div#btn3 {
 }
 
 div.button {
+  border: 2px solid black;
   background-color: #F4ABF7;
-  color: #2c3e50;
-  border: none;
   border-radius: 30px;
-  width: 280px;
+  width: 150px;
   height: 40px;
+  padding-left: 50px;
   position: fixed;
-  left: -240px;
+  left: -150px;
   transition: .7s ease;
 }
 
@@ -73,7 +63,7 @@ div.button:hover {
   background-color: #F4ABF7;
   position: fixed;
   left: -50px;
-  width: 300px;
+  width: 200px;
   border-radius: 0px;
   box-shadow: 0px 5px 0px #6E4970;
 }
@@ -84,6 +74,19 @@ div.button:active {
   color: #ecf0f1;
 }
 
+button.submenuTutorial, .submenuAbout, .submenuSettings{
+  background-color: #F4ABF7;
+  color: #2c3e50;
+  border: none;
+  font-family: verdana, sans-serif;
+  font-weight: bold;
+  font-size: 18px;
+  float: right;
+  margin-right: 50px;
+  font-variant: small-caps;
+  position: relative;
+  top:7px;
+}
 
 /*******************************************************************/
 /*******************************************************************/
@@ -129,9 +132,10 @@ p.subtitle{
 .mainmenu{
   background-color: #F4ABF7;
 }
+
 div.mainmenu ul{
     list-style: none;
-    padding:5px 5px 5px 5px;
+    padding:5px 0px 5px 0px;
     border-bottom:1px solid;
 }
 
@@ -141,9 +145,25 @@ div.mainmenu ul li{
 }
 
 .mainmenuItem{
-    padding:2px;
+    background-color: #B050B3;
+    padding:7px;
     border:1px dashed;
-    text-shadow:0px 0px 1px;
+    font-variant: small-caps;
+    color: white;
+    box-shadow: 3px 3px 10px #6E4970;
+    -webkit-transition-duration: 0.4s; /* Safari */
+    transition-duration: 0.4s;
+}
+
+.mainmenuItem:hover {
+    background-color: #6E4970;
+    color: greypurple;
+}
+
+.mainmenuItem:active {
+    background-color: #6E4970; 
+    color: greypurple;
+    box-shadow: none;
 }
 
 .mainmenu ul > li:last-child
@@ -160,11 +180,12 @@ div.mainmenu ul li{
 
 
 div.quickaddForm {
-    height:440px;
+   // height:540px;
     width: 100%;
-    
+    padding-top: 20px;
+    color: #520955;
     background:rgb(240,240,240);
-    overflow:hidden;
+   // overflow:hidden;
     display:none;
 }
 
@@ -182,7 +203,7 @@ div.quickaddForm {
 }
 
 .quickaddForm input,textarea {
-    border:1px dashed;
+    border:1px dashed #520955;
     width:80%;
     padding:5px;
     margin-left: 20px;
@@ -191,58 +212,71 @@ div.quickaddForm {
 }
 
 button#Add,#Cancel {
+  color: #520955;
     padding:10px;
-    margin:20px;
+    margin:0px 20px 20px 20px;
     position:relative;
-    left:300px;
-    border:1px dashed;
+    left:75px;
+    border:1px dashed #520955;
     border-radius:5px;
     font-weight:bold;
 }
 
+// *********************************************************//
+// ********  Contacts to show in the JS loop  **************//
+// *********************************************************//
+// *********************************************************//
+
+div.addbook{
+  border: 2px solid black;
+}
+
 .entry {
-    background:rgb(230,230,230);
-    width:960px;
-    height:40px;
-    border-bottom:1px solid;
+    background-color: #F6DCF7;
+    width:45%;
+   // height:40px;
+    border:1px solid;
+    margin: 5px;
+    float: left;
 }
 
-
-.entry .name {
-    width:130px;
+.entry .familyname {
     float:left;
-    padding:11px;
+    padding:4px;
 }
 
-.entry .email {
-    width:200px;
+.entry .firstname {
     float:left;
-    padding:11px;
-}
-
-
-.entry .phone {
-    width:100px;
-    float:left;
-    padding:11px;
+    padding:4px;
 }
 
 .entry .address {
-    width:250px;
+    clear: left;
     float:left;
-    padding:11px;
+    padding:4px;
+}
+
+.entry .zipcode {
+    clear: left;
+    float:left;
+    padding:4px;
 }
 
 .entry .city {
-    width:100px;
     float:left;
-    padding:11px;
+    padding:4px;
 }
 
-.entry .del {
-    width:30px;
+.entry .country {
+    clear: left;
     float:left;
-    padding:9px;
+    padding:4px;
+}
+
+.entry .email {
+    clear: left;
+    float:left;
+    padding:4px;
 }
 
 .entry p {
@@ -252,12 +286,78 @@ button#Add,#Cancel {
     text-shadow:0px 0px 1px rgba(0,0,0,0.4);
 }
 
-.entry .del a {
+.entry .change {
+    margin-left: 5px;
+    padding:9px;
+    clear: left;
+    float: left;
+}
+
+.entry .del {
+    padding:9px 0 0 0;
+    float: left;
+}
+
+a.changebutton {
     font-family:sans-serif;
+    font-variant: small-caps;
     color:#FFF;
     font-size:12px;
-    padding:5px;
-    background:rgb(255,100,100);
+    padding: 5px 10px 5px 10px;
+    background:#B050B3;
     border-radius:8px;
     text-decoration:none;
+    border:1px dashed;
+    -webkit-transition-duration: 0.4s; /* Safari */
+    transition-duration: 0.4s;
 }
+
+a.delbutton {
+    font-family:sans-serif;
+    font-variant: small-caps;
+    color:#FFF;
+    font-size:12px;
+    padding: 5px 10px 5px 10px;
+    background:#B050B3;
+    border-radius:8px;
+    text-decoration:none;
+    border:1px dashed;
+    -webkit-transition-duration: 0.4s; /* Safari */
+    transition-duration: 0.4s;
+}
+
+.changebutton:hover, .delbutton:hover {
+    background-color: #6E4970; 
+    color: greypurple;
+}
+
+
+
+// *********************************************************//
+// *********************************************************//
+// ** Show all the contacts by name with dates mail send ***//
+// *********************************************************//
+// *********************************************************//
+
+.mailsend{
+    background:rgb(230,230,230);
+    width:960px;
+    height:40px;
+    border-bottom:1px solid;
+}
+
+
+// *********************************************************//
+// *********************************************************//
+// ** Design of the tutorial and about pages  **************//
+// *********************************************************//
+// *********************************************************//
+
+div.pages{
+    height: 400px;
+    width: 100%;
+    padding-top: 140px;
+    color: #520955;
+    background:rgb(240,240,240);
+    display:none;
+  }
