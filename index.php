@@ -13,19 +13,19 @@
 		<div class="sidemenu">
 			<a href="#">
 			  <div id="btn1" class="button">
-			    <h1 class="submenu">settings</h1>
+			    <button class="submenuSettings" onclick="settings()">settings</h1>
 			  </div>
 			</a>
 
 			<a href="#">
 			  <div id="btn2" class="button">
-			    <h1 class="submenu">tutorials</h1>
+			    <button class="submenuTutorial">tutorials</h1>
 			  </div>
 			</a>
 
 			<a href="#">
 			  <div id="btn3" class="button">
-			    <h1 class="submenu">about</h1>
+			    <button class="submenuAbout">about</h1>
 			  </div>
 			</a>
 		</div>
@@ -38,39 +38,50 @@
 		</div>
 
 		<div class="mainmenu">
-			<ul>
-				
-				<li>	
-					<div class="mainmenuItem"><button id="AllContacts">Your contacts</button></div>
-				</li>
+			<ul>				
 				<li>
-					<div class="mainmenuItem"><button id="sendMail">Your Mail</button></div>
+					<div><button id="sendMail" class="mainmenuItem">Send Mail</button></div>
+				</li>
+				<li>	
+					<div><button id="AllContacts" class="mainmenuItem">Holliday checklists</button></div>
 				</li>
 				<li class="quickadd">
-					<div class="mainmenuItem"><button id="QuickAdd">+ Add</button></div>
+					<div><button id="QuickAdd" class="mainmenuItem">+ Add</button></div>
 				</li>
 			</ul>		
 		</div>	
 		<div class="quickaddForm">
-			<label for="fullname">Name</label><input type="text" id="fullname" class="formFields">
-			<label for="phone">Phone</label><input type="text" id="phone" class="formFields">
-			<label for="address">Address</label><textarea name="address" id="address" cols="30" rows="10" class="formFields"></textarea>
+			<label for="familyName">Family name</label><input type="text" id="familyName" class="formFields">
+			<label for="firstName">First name</label><input type="text" id="firstName" class="formFields">
+			<label for="address">Adress + housenumber</label><textarea name="address" id="address" cols="30" rows="2" class="formFields"></textarea>
+			<label for="zip">Zip code</label><input type="text" id="zip" class="formFields">
 			<label for="city">City</label><input type="text" id="city" class="formFields">
+			<label for="country">Country</label><input type="text" id="country" class="formFields">
 			<label for="email">E-Mail</label><input type="text" id="email" class="formFields">
 			<br><br>
 			<button id="Add">Add Now</button><button id="Cancel">Cancel</button>
 		</div>
+
 		<div class="addbook">
-			<!-- <div class="entry">
-				<div class="name"><p>Sachin Bhatnagar</p></div>
-				<div class="email"><p>sachin@frameboxx.in</p></div>
-				<div class="phone"><p>9316523541</p></div>
-				<div class="address"><p>House No. 8, Sector 10 - A</p></div>
-				<div class="city"><p>Chandigarh</p></div>
-				<div class="del"><a href="#">Delete</a></div>
-			</div> -->
-			
+			<!-- This is where the contacts will show up in a JS loop -->
 		</div>	
+
+		<div class="sendmail">
+			<!-- this is where the contacts wil show by name and when you send mail to them -->
+		</div>	
+
+		<div class="pages" id="pages">
+			<!--- this is where the pages will appear.
+				About
+				Tutorial
+				<p>Thank you for using Keep In Touch! </p>
+				<p>This app is developed by A.E. Tijhoff as an assignment for CodeGorilla.</p>
+				<p> &copy 2018 A.E. Tijhoff All rights reserved</p>
+				<p>Please also check <a href="http://www.esmeraldatijhoff.nl" target="_blank">www.esmeraldatijhoff.nl</a></p>
+			-->	
+		</div>
+			
+
 	</div>
 </body>
 </html>
