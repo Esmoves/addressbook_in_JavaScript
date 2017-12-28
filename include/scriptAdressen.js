@@ -16,7 +16,14 @@ window.onload = function(){
 	var quickAddBtn = document.getElementById('QuickAdd');
 	var cancelBtn = document.getElementById('Cancel');
 	var AddBtn = document.getElementById('Add');
-	var quickAddFormDiv = document.querySelector('.quickaddForm')
+	var quickAddFormDiv = document.querySelector('.quickaddForm');
+
+	var AboutBtn = document.getElementById('about');
+	var TutorialBtn = document.getElementById('tutorial');
+	var SettingsBtn = document.getElementById('settings');
+	var pageAboutDiv = document.querySelector('.pageAbout');
+	var pageTutorialDiv = document.querySelector('.pageTutorial');
+	var pageSettingsDiv = document.querySelector('.pageSettings');
 
 	// Get all the information of the form fields
 	var familyname = document.getElementById('familyName');
@@ -34,16 +41,41 @@ window.onload = function(){
 	// Storage Array. Hold al the JSON entries of the adresbook
 	var addressBook = [];
 
-	// Event Listener If you click on quickAd, show form
+	// Event Listener If you click on quickAd, show form and hide pages
 	quickAddBtn.addEventListener("click", function(){
 		// display the form div
 		quickAddFormDiv.style.display = "block";
+		pageSettingsDiv.style.display = "none";
+		pageAboutDiv.style.display = "none";
+		pageTutorialDiv.style.display = "none";
 	});
-
 	// eventlistener for cancel botton that is in the form. Click cancel to hide form again.
 	cancelBtn.addEventListener("click", function(){
 		quickAddFormDiv.style.display = "none";
 	});
+
+	// eventlistenen to display the pages and hide the other divs
+	AboutBtn.addEventListener("click", function(){
+		pageAboutDiv.style.display = "block";
+		quickAddFormDiv.style.display = "none";
+		pageTutorialDiv.style.display = "none";
+		pageSettingsDiv.style.display = "none";
+	});
+	TutorialBtn.addEventListener("click", function(){
+		pageTutorialDiv.style.display = "block";
+		quickAddFormDiv.style.display = "none";
+		pageSettingsDiv.style.display = "none";
+		pageAboutDiv.style.display = "none";
+	});
+	SettingsBtn.addEventListener("click", function(){
+		pageSettingsDiv.style.display = "block";
+		quickAddFormDiv.style.display = "none";
+		pageAboutDiv.style.display = "none";
+		pageTutorialDiv.style.display = "none";
+	});
+
+
+
 
 	// eventlistener, press 'add' to put content in JSON 
 	AddBtn.addEventListener("click", addToBook);
@@ -150,12 +182,13 @@ window.onload = function(){
   		
 		
 	// SHOW the turorial and about pages when buttons are pushed
-	function settings(){
+	// This does not work. Why not? Button with onclick = function cannot find the function. why not?
+	/*function settings(){
 		// Start the content of the Pages 
 		var pagesDiv = document.querySelector('.pages');
 		pagesDiv.innerHTML = '<p>Settings</p>';
 	}
-	
+	*/
 
 	function showAddressBook(){
 		if(localStorage['addbook'] === undefined){

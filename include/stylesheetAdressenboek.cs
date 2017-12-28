@@ -1,7 +1,6 @@
 body {
-    width: device-width;
-    margin:0px;
     background-color: #FAFAFA;
+    font-family: 'Roboto', sans-serif;
 }
 
 /********************************************************************/
@@ -20,6 +19,20 @@ body {
     margin:auto;
 }
 
+h1 {
+    margin:0;
+    font-family: 'Indie Flower', cursive, sans-serif;
+    font-weight:normal;
+    font-size: 2.5em;
+    text-align: center;
+    color: #6E4970;
+}
+
+a {
+  text-decoration: none;
+}
+
+
 /**********************************************************************/
 /**********************************************************************/
 /************************* SLIDE MENU *********************************/
@@ -29,11 +42,6 @@ body {
 div.submenu{
   background-color: #F4ABF7;
 }
-
-a {
-  text-decoration: none;
-}
-
 
 div#btn1 {
   top: 250px;
@@ -57,6 +65,7 @@ div.button {
   position: fixed;
   left: -150px;
   transition: .7s ease;
+  -webkit-transition-duration: 0.7s; /* Safari */
 }
 
 div.button:hover {
@@ -71,7 +80,9 @@ div.button:hover {
 div.button:active {
   background-color: #2c3e50;
   transition: 0s;
+  -webkit-transition-duration: 0s; /* Safari */
   color: #ecf0f1;
+  outline: none;
 }
 
 button.submenuTutorial, .submenuAbout, .submenuSettings{
@@ -82,10 +93,21 @@ button.submenuTutorial, .submenuAbout, .submenuSettings{
   font-weight: bold;
   font-size: 18px;
   float: right;
-  margin-right: 50px;
+  margin-right: 15px;
+  padding: 5px 60px 5px 60px;
   font-variant: small-caps;
   position: relative;
   top:7px;
+  transition: .7s ease;
+  -webkit-transition-duration: 0.7s; /* Safari */
+}
+
+button.submenuTutorial:active, .submenuAbout:active, .submenuSettings:active{
+  background-color: #2c3e50;
+  transition: 0s;
+  -webkit-transition-duration: 0s; /* Safari */
+  color: #ecf0f1;
+  outline: none; // remove blue border in chroome
 }
 
 /*******************************************************************/
@@ -107,17 +129,16 @@ div.title img{
 
 .title h1 {
     margin:0px;
-    font-family:sans-serif;
+    font-family: 'Indie Flower', cursive, sans-serif;
     font-weight:normal;
-    font-size: 2em;
+    font-size: 2.5em;
     text-align: center;
     color: #6E4970;
-    text-shadow:0px 0px 1px rgba(0,0,0,0.4);
 }
 
 p.subtitle{
-    font-family:sans-serif;
-    font-size: 1em;
+    font-family:'Indie Flower', cursive; sans-serif;
+    font-size: 1.3em;
     text-align: center;
     color: #6E4970;
     margin: 0;
@@ -180,12 +201,10 @@ div.mainmenu ul li{
 
 
 div.quickaddForm {
-   // height:540px;
     width: 100%;
     padding-top: 20px;
     color: #520955;
     background:rgb(240,240,240);
-   // overflow:hidden;
     display:none;
 }
 
@@ -307,7 +326,7 @@ a.changebutton {
     background:#B050B3;
     border-radius:8px;
     text-decoration:none;
-    border:1px dashed;
+    border:1px dashed white;
     -webkit-transition-duration: 0.4s; /* Safari */
     transition-duration: 0.4s;
 }
@@ -321,29 +340,14 @@ a.delbutton {
     background:#B050B3;
     border-radius:8px;
     text-decoration:none;
-    border:1px dashed;
+    border:1px dashed white;
     -webkit-transition-duration: 0.4s; /* Safari */
     transition-duration: 0.4s;
 }
 
-.changebutton:hover, .delbutton:hover {
+.changebutton:hover, .delbutton:hover{
     background-color: #6E4970; 
     color: greypurple;
-}
-
-
-
-// *********************************************************//
-// *********************************************************//
-// ** Show all the contacts by name with dates mail send ***//
-// *********************************************************//
-// *********************************************************//
-
-.mailsend{
-    background:rgb(230,230,230);
-    width:960px;
-    height:40px;
-    border-bottom:1px solid;
 }
 
 
@@ -353,10 +357,28 @@ a.delbutton {
 // *********************************************************//
 // *********************************************************//
 
-div.pages{
-    height: 400px;
-    width: 100%;
-    padding-top: 140px;
+div.pageAbout{
+    padding: 20px;
+    height: 360px;
+    padding-top: 40px;
+    color: #520955;
+    background:rgb(240,240,240);
+    display:none;
+  }
+
+div.pageSettings{
+    padding: 20px;
+    height: 360px;
+    padding-top: 40px;
+    color: #520955;
+    background:rgb(240,240,240);
+    display:none;
+  }
+
+div.pageTutorial{
+    padding: 20px;
+    height: 360px;
+    padding-top: 40px;
     color: #520955;
     background:rgb(240,240,240);
     display:none;
