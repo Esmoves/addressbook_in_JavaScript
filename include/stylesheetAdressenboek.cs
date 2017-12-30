@@ -30,8 +30,74 @@ h1 {
 
 a {
   text-decoration: none;
+  color: #6E4970;
 }
 
+a:hover{
+  text-decoration: underline;
+}
+
+
+// *********************************************************//
+// *********************************************************//
+// ** Design of the tutorial and about pages  **************//
+// *********************************************************//
+// *********************************************************//
+
+// fix problem of loosing the first div display style by making them children of a hidden parent div so they inherit the display
+div.pages{
+  display:none;
+}
+
+div.pageTutorial{
+    padding: 20px;
+    height: 360px;
+    padding-top: 40px;
+    color: #520955;
+    background:rgb(240,240,240);
+   display:none;
+  }
+
+div.pageSettings{
+    padding: 20px;
+    height: 360px;
+    padding-top: 40px;
+    color: #520955;
+    background:rgb(240,240,240);
+   display:none;
+  }
+  
+div.pageAbout{
+    padding: 20px;
+    height: 360px;
+    padding-top: 40px;
+    color: #520955;
+    background:rgb(240,240,240);
+    display:none;
+  }
+
+button.deleteAll{
+    background-color: #B050B3;
+    padding:7px;
+    border:1px dashed;
+    font-variant: small-caps;
+    color: white;
+    box-shadow: 3px 3px 10px #6E4970;
+    -webkit-transition-duration: 0.4s; /* Safari */
+    transition-duration: 0.4s;
+}
+
+button#deleteAll:hover{
+    background-color: #6E4970;
+    color: greypurple;
+}
+
+button#deleteAll:active{
+    background-color: #6E4970; 
+    color: greypurple;
+    box-shadow: none;
+    outline: none; // remove blue border in chroome
+}
 
 /**********************************************************************/
 /**********************************************************************/
@@ -59,11 +125,10 @@ div.button {
   border: 2px solid black;
   background-color: #F4ABF7;
   border-radius: 30px;
-  width: 150px;
+  width: 180px;
   height: 40px;
-  padding-left: 50px;
   position: fixed;
-  left: -150px;
+  left: -140px;
   transition: .7s ease;
   -webkit-transition-duration: 0.7s; /* Safari */
 }
@@ -71,8 +136,8 @@ div.button {
 div.button:hover {
   background-color: #F4ABF7;
   position: fixed;
-  left: -50px;
-  width: 200px;
+  left: -70px;
+  width: 250px;
   border-radius: 0px;
   box-shadow: 0px 5px 0px #6E4970;
 }
@@ -85,29 +150,19 @@ div.button:active {
   outline: none;
 }
 
-button.submenuTutorial, .submenuAbout, .submenuSettings{
-  background-color: #F4ABF7;
-  color: #2c3e50;
-  border: none;
-  font-family: verdana, sans-serif;
-  font-weight: bold;
-  font-size: 18px;
-  float: right;
-  margin-right: 15px;
-  padding: 5px 60px 5px 60px;
-  font-variant: small-caps;
-  position: relative;
-  top:7px;
-  transition: .7s ease;
-  -webkit-transition-duration: 0.7s; /* Safari */
+.sidemenu a, .sidemenu a:visited{
 }
 
-button.submenuTutorial:active, .submenuAbout:active, .submenuSettings:active{
-  background-color: #2c3e50;
-  transition: 0s;
-  -webkit-transition-duration: 0s; /* Safari */
-  color: #ecf0f1;
+.sidemenu a:active{
+
+}
+
+.sidemenu a:hover{
   outline: none; // remove blue border in chroome
+}
+
+.sidemenu h1{
+  font-size: 1.5em;
 }
 
 /*******************************************************************/
@@ -185,6 +240,7 @@ div.mainmenu ul li{
     background-color: #6E4970; 
     color: greypurple;
     box-shadow: none;
+    outline: none; // remove blue border in chroome
 }
 
 .mainmenu ul > li:last-child
@@ -231,7 +287,7 @@ div.quickaddForm {
 }
 
 button#Add,#Cancel {
-  color: #520955;
+    color: #520955;
     padding:10px;
     margin:0px 20px 20px 20px;
     position:relative;
@@ -239,6 +295,7 @@ button#Add,#Cancel {
     border:1px dashed #520955;
     border-radius:5px;
     font-weight:bold;
+    outline: none; // remove blue border in chroome
 }
 
 // *********************************************************//
@@ -350,36 +407,6 @@ a.delbutton {
     color: greypurple;
 }
 
-
-// *********************************************************//
-// *********************************************************//
-// ** Design of the tutorial and about pages  **************//
-// *********************************************************//
-// *********************************************************//
-
-div.pageAbout{
-    padding: 20px;
-    height: 360px;
-    padding-top: 40px;
-    color: #520955;
-    background:rgb(240,240,240);
-    display:none;
-  }
-
-div.pageSettings{
-    padding: 20px;
-    height: 360px;
-    padding-top: 40px;
-    color: #520955;
-    background:rgb(240,240,240);
-    display:none;
-  }
-
-div.pageTutorial{
-    padding: 20px;
-    height: 360px;
-    padding-top: 40px;
-    color: #520955;
-    background:rgb(240,240,240);
-    display:none;
-  }
+.changebutton:active, .delbutton:active{
+ outline: none; // remove blue border in chroome
+}

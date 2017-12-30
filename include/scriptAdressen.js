@@ -11,13 +11,12 @@ window.onload = function(){
 /************************************************************/
 /************************************************************/
 
-
 	// Get all the buttons
 	var quickAddBtn = document.getElementById('QuickAdd');
 	var cancelBtn = document.getElementById('Cancel');
 	var AddBtn = document.getElementById('Add');
 	var quickAddFormDiv = document.querySelector('.quickaddForm');
-
+	
 	var AboutBtn = document.getElementById('about');
 	var TutorialBtn = document.getElementById('tutorial');
 	var SettingsBtn = document.getElementById('settings');
@@ -33,6 +32,7 @@ window.onload = function(){
 	var city = document.getElementById('city');
 	var country = document.getElementById('country');
 	var email = document.getElementById('email');
+
 
 	// Start the adressbook. Display all contacts. Hidden when empty
 	// this contains the delete and the edit buttons
@@ -62,7 +62,7 @@ window.onload = function(){
 		pageSettingsDiv.style.display = "none";
 	});
 	TutorialBtn.addEventListener("click", function(){
-		pageTutorialDiv.style.display = "block";
+		document.getElementById('pageTutorial').style.display = 'block';
 		quickAddFormDiv.style.display = "none";
 		pageSettingsDiv.style.display = "none";
 		pageAboutDiv.style.display = "none";
@@ -82,6 +82,20 @@ window.onload = function(){
 
 	// Delete an entry
 	addBookDiv.addEventListener("click", removeEntry);
+
+	// Delete ALL contacts (button on page 'Settings')
+	document.getElementById("DeleteAll").addEventListener("click", function(){ 
+		var check = confirm("Are you sure you want to delete ALL contacts?");
+        if (check == true) { 
+        	// empty the array	
+           	localStorage['addbook'] = [];
+           	alert("All contacts deleted");
+           	pageSettingsDiv.style.display = "none";
+       	 }
+       	 else {
+       	 	showAddressBook();
+       	 }
+     });
 
 	// change an entry
 	// doesnt work, kan maar 1 click op de div die aangeroepen wordt vanuit index.php
