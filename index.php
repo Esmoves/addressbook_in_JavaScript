@@ -13,19 +13,21 @@
 <body>
 	<div class="container">
 		<div class="sidemenu">
-			
+			<a id="about">
 			  <div id="btn3" class="button">
-			    <button class="submenuAbout" id="about">about</h1>
+			    <h1>about</h1>
 			  </div>
-			
+			</a>
+			<a id="settings">
 			  <div id="btn1" class="button">
-			    <button class="submenuSettings" id="settings">settings</h1>
+			    <h1>settings</h1>
 			  </div>
-			
+			</a>
+			<a id="tutorial">
 			  <div id="btn2" class="button">
-			    <button class="submenuTutorial" id="tutorial">tutorial</h1>
+			    <h1>tutorial</h1>
 			  </div>
-			
+			</a>
 		</div>
 	
 		<div class="title">
@@ -48,36 +50,40 @@
 				</li>
 			</ul>		
 		</div>	
+		
+		<div class="pages">	
+			<div class="pageSettings" id="pageSettings">
+				<h1>Settings</h1>
+				<p>Thank you for using Keep In Touch! </p>
+				<p>Delete all contacts by pressing </p>
+				<button id="DeleteAll" class="deleteAll">Delete All</button>
+				<p> &copy 2018 A.E. Tijhoff All rights reserved</p>
+				<p><em>Please also check <a href="http://www.esmeraldatijhoff.nl" target="_blank">www.esmeraldatijhoff.nl</a></em></p>	
+			</div>
 
-		<!-- hidden pages that show by changing the style to display:block by javascript as action on button -->
-		<div class="pageAbout">
-			<h1>About</h1>
-			<p>Thank you for using Keep In Touch! </p>
-			<p>This app is developed by A.E. Tijhoff as an assignment for CodeGorilla.</p>
-			<p> &copy 2018 A.E. Tijhoff All rights reserved</p>
-			<p>Please also check <a href="http://www.esmeraldatijhoff.nl" target="_blank">www.esmeraldatijhoff.nl</a></p>	
-		</div>
-			
-		<div class="pageSettings">
-			<h1>Settings</h1>
-			<p>Thank you for using Keep In Touch! </p>
-			<p>Delete all contacts by pressing <button class="deleteall">Delete All</button></p>
-			<p> &copy 2018 A.E. Tijhoff All rights reserved</p>
-			<p>Please also check <a href="http://www.esmeraldatijhoff.nl" target="_blank">www.esmeraldatijhoff.nl</a></p>	
-		</div>
+			<div class="pageAbout">
+				<h1>About</h1>
+				<p>Thank you for using Keep In Touch! </p>
+				<p>This app is developed by A.E. Tijhoff as an assignment for CodeGorilla.</p>
+				<p> &copy 2018 A.E. Tijhoff All rights reserved</p>
+				<p>Please also check <a href="http://www.esmeraldatijhoff.nl" target="_blank">www.esmeraldatijhoff.nl</a></p>	
+				
+			</div>
 
-		<div class="pageTutorial">
-			<h1>Tutorial</h1>
-			<p>Thank you for using Keep In Touch! </p>
-			<p>With this app you can keep track of all your contacts. 
-				Click on the Add button in the main menu to add a contact. 
-				Fill in the fields. All fields execpt Country and Email, need to have some input before you can save the contact.
-				Click on Save to store the contact.
-				The contact will show up at the buttom of your contactlist.
-			</p>
-			<p> &copy 2018 A.E. Tijhoff All rights reserved</p>
-			<p>Please also check <a href="http://www.esmeraldatijhoff.nl" target="_blank">www.esmeraldatijhoff.nl</a></p>	
+			<div class="pageTutorial" id="pageTutorial">
+				<h1>Tutorial</h1>
+				<p>Thank you for using Keep In Touch! </p>
+				<p>With this app you can keep track of all your contacts. 
+					Click on the Add button in the main menu to add a contact. 
+					Fill in the fields. All fields execpt Country and Email, need to have some input before you can save the contact.
+					Click on Save to store the contact.
+					The contact will show up at the buttom of your contactlist.
+				</p>
+				<p> &copy 2018 A.E. Tijhoff All rights reserved</p>
+				<p>Please also check <a href="http://www.esmeraldatijhoff.nl" target="_blank">www.esmeraldatijhoff.nl</a></p>	
+			</div>
 		</div>
+		
 		
 		
 
