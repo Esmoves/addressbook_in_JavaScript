@@ -12,11 +12,20 @@ window.onload = function(){
 /************************************************************/
 
 	// Get all the buttons
+	var AllContactsBtn = document.getElementById('AllContacts');
+	var sendMailBtn = document.getElementById('sendMail');
+	var sendMailDiv = document.querySelector('.ShowSendMail');
+	var AddSendMailBtn = document.getElementById('AddSendMailBtn');
+	var AddSendMailDiv = document.querySelector('AddSendMail');
+	var hollidayBtn = document.getElementById('holliday');
 	var quickAddBtn = document.getElementById('QuickAdd');
+
+	// form and buttons in Add form
 	var cancelBtn = document.getElementById('Cancel');
 	var AddBtn = document.getElementById('Add');
 	var quickAddFormDiv = document.querySelector('.quickaddForm');
 	
+	// Side menu
 	var AboutBtn = document.getElementById('about');
 	var TutorialBtn = document.getElementById('tutorial');
 	var SettingsBtn = document.getElementById('settings');
@@ -41,6 +50,39 @@ window.onload = function(){
 	// Storage Array. Hold al the JSON entries of the adresbook
 	var addressBook = [];
 
+	// Eventlistener for the main menu
+	AllContactsBtn.addEventListener("click", function(){
+		document.getElementById("addbook").style.display = "block";
+		document.getElementById("AddSendMail").style.display = "none";
+		quickAddFormDiv.style.display = "none";
+		pageSettingsDiv.style.display = "none";
+		pageAboutDiv.style.display = "none";
+		pageTutorialDiv.style.display = "none";
+		sendMailDiv.style.display = "none";
+	});
+
+	// Eventlistener for send mail button
+	sendMailBtn.addEventListener("click", function(){
+		sendMailDiv.style.display = "block";
+		pageSettingsDiv.style.display = "none";
+		pageAboutDiv.style.display = "none";
+		pageTutorialDiv.style.display = "none";
+		document.getElementById("addbook").style.display = "none";
+		document.getElementById("AddSendMail").style.display = "none";
+		quickAddFormDiv.style.display = "none";
+	});
+
+	// Eventlistener to show the form to Add a New Mail for a Contact
+	AddSendMailBtn.addEventListener("click", function(){
+		document.getElementById("AddSendMail").style.display = "block";
+		sendMailDiv.style.display = "none";
+		pageSettingsDiv.style.display = "none";
+		pageAboutDiv.style.display = "none";
+		pageTutorialDiv.style.display = "none";
+		document.getElementById("addbook").style.display = "none";
+		quickAddFormDiv.style.display = "none";
+	});
+
 	// Event Listener If you click on quickAd, show form and hide pages
 	quickAddBtn.addEventListener("click", function(){
 		// display the form div
@@ -48,6 +90,9 @@ window.onload = function(){
 		pageSettingsDiv.style.display = "none";
 		pageAboutDiv.style.display = "none";
 		pageTutorialDiv.style.display = "none";
+		document.getElementById("addbook").style.display = "none";
+		document.getElementById("AddSendMail").style.display = "none";
+		sendMailDiv.style.display = "none";
 	});
 	// eventlistener for cancel botton that is in the form. Click cancel to hide form again.
 	cancelBtn.addEventListener("click", function(){
@@ -60,18 +105,27 @@ window.onload = function(){
 		quickAddFormDiv.style.display = "none";
 		pageTutorialDiv.style.display = "none";
 		pageSettingsDiv.style.display = "none";
+		document.getElementById("addbook").style.display = "none";
+		document.getElementById("AddSendMail").style.display = "none";
+		sendMailDiv.style.display = "none";
 	});
 	TutorialBtn.addEventListener("click", function(){
 		document.getElementById('pageTutorial').style.display = 'block';
+		document.getElementById("AddSendMail").style.display = "none";
 		quickAddFormDiv.style.display = "none";
 		pageSettingsDiv.style.display = "none";
 		pageAboutDiv.style.display = "none";
+		document.getElementById("addbook").style.display = "none";
+		sendMailDiv.style.display = "none";
 	});
 	SettingsBtn.addEventListener("click", function(){
 		pageSettingsDiv.style.display = "block";
 		quickAddFormDiv.style.display = "none";
 		pageAboutDiv.style.display = "none";
 		pageTutorialDiv.style.display = "none";
+		document.getElementById("addbook").style.display = "none";
+		document.getElementById("AddSendMail").style.display = "none";
+		sendMailDiv.style.display = "none";
 	});
 
 
@@ -120,6 +174,7 @@ window.onload = function(){
 		for(var i in formFields){
 			formFields[i].value = '';
 			}
+		document.getElementById("addbook").style.display = "none";	
 		}
 
 /* Confirmation for delete prompt */    		            
@@ -177,8 +232,6 @@ window.onload = function(){
 			// Validate the input. make sure the form is filled. 
 			// email and coutrny is not required.
 			var isNull = familyname.value!='' && firstname.value!='' && address.value!='' && zipcode.value!= '' && city.value!='';
-			// if this gives a return of False, you need to have a pop up stating wich field needs to be filled before saving
-
 			// if isNull is true, add the input of the form to the array and localstorage
 			if(isNull){
 				// format the input into a valid JSON structure
@@ -191,6 +244,21 @@ window.onload = function(){
 				// clear the form from last input
 				clearForm();
 				showAddressBook();
+			}
+			else if (familyname.value === ""){
+				alert("Please enter a last name");
+			}
+			else if (firstname.value === ""){
+				alert("Please enter a first name");
+			}
+			else if (address.value === ""){
+				alert("Please enter an adress");
+			}
+			else if (zipcode.value === ""){
+				alert("Please enter a zipcode");
+			}
+			else if (city.value === ""){
+				alert("Please enter a city");
 			}
 		}
   		
@@ -229,6 +297,7 @@ window.onload = function(){
 					str += '<div class="del"><a href="#" class="delbutton" data-id="' + n + '">Delete</a></div>';
 					str += '</div>';
 				addBookDiv.innerHTML += str;
+				document.getElementById("addbook").style.display = "block";
 			}
 		}
 	}

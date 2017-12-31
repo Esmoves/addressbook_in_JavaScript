@@ -38,66 +38,6 @@ a:hover{
 }
 
 
-// *********************************************************//
-// *********************************************************//
-// ** Design of the tutorial and about pages  **************//
-// *********************************************************//
-// *********************************************************//
-
-// fix problem of loosing the first div display style by making them children of a hidden parent div so they inherit the display
-div.pages{
-  display:none;
-}
-
-div.pageTutorial{
-    padding: 20px;
-    height: 360px;
-    padding-top: 40px;
-    color: #520955;
-    background:rgb(240,240,240);
-   display:none;
-  }
-
-div.pageSettings{
-    padding: 20px;
-    height: 360px;
-    padding-top: 40px;
-    color: #520955;
-    background:rgb(240,240,240);
-   display:none;
-  }
-  
-div.pageAbout{
-    padding: 20px;
-    height: 360px;
-    padding-top: 40px;
-    color: #520955;
-    background:rgb(240,240,240);
-    display:none;
-  }
-
-button.deleteAll{
-    background-color: #B050B3;
-    padding:7px;
-    border:1px dashed;
-    font-variant: small-caps;
-    color: white;
-    box-shadow: 3px 3px 10px #6E4970;
-    -webkit-transition-duration: 0.4s; /* Safari */
-    transition-duration: 0.4s;
-}
-
-button#deleteAll:hover{
-    background-color: #6E4970;
-    color: greypurple;
-}
-
-button#deleteAll:active{
-    background-color: #6E4970; 
-    color: greypurple;
-    box-shadow: none;
-    outline: none; // remove blue border in chroome
-}
 
 /**********************************************************************/
 /**********************************************************************/
@@ -248,6 +188,148 @@ div.mainmenu ul li{
     float:right;
 }
 
+li.drop{
+  background-color: none;  
+}
+
+
+// *********************************************************//
+// *********************************************************//
+// ** Design of the tutorial and about pages  **************//
+// *********************************************************//
+// *********************************************************//
+
+// fix problem of loosing the first div display style by making them children of a hidden parent div so they inherit the display
+div.pages{
+  display:none;
+}
+
+div.pageTutorial{
+    padding: 20px;
+    min-height: 360px;
+    color: #520955;
+    background:rgb(240,240,240);
+   display:none;
+  }
+
+div.pageSettings{
+    padding: 20px;
+    min-height: 360px;
+    color: #520955;
+    background:rgb(240,240,240);
+   display:none;
+  }
+  
+div.pageAbout{
+    padding: 20px;
+    min-height: 360px;
+    color: #520955;
+    background:rgb(240,240,240);
+    display:none;
+  }
+
+button.deleteAll{
+    background-color: #B050B3;
+    padding:7px;
+    border:1px dashed;
+    font-variant: small-caps;
+    color: white;
+    box-shadow: 3px 3px 10px #6E4970;
+    -webkit-transition-duration: 0.4s; /* Safari */
+    transition-duration: 0.4s;
+}
+
+button#deleteAll:hover{
+    background-color: #6E4970;
+    color: greypurple;
+}
+
+button#deleteAll:active{
+    background-color: #6E4970; 
+    color: greypurple;
+    box-shadow: none;
+    outline: none; // remove blue border in chroome
+}
+
+a.buttonLink{
+    font-variant: small-caps;
+    color:#FFF;
+    font-size:12px;
+    padding: 5px 10px 5px 10px;
+    background:#B050B3;
+    border-radius:8px;
+    text-decoration:none;
+    border:1px dashed white;
+    -webkit-transition-duration: 0.4s; /* Safari */
+    transition-duration: 0.4s;
+}
+
+.buttonLink:hover, .buttonLink:hover{
+    background-color: #6E4970; 
+    color: greypurple;
+}
+
+.footer {
+  padding-top: 20px;
+  font-size: 0.75em;
+  text-align: center;
+}
+
+
+
+// ***********************************************************/
+// ***********************************************************/
+// *************** SEND MAIL OVERVIEW   **********************/
+// ***********************************************************/
+// ***********************************************************/
+
+div.ShowSendMail{
+  // does not respond??
+  display:none;
+  border: 2px solid black;
+}
+
+
+.tableSend{
+  // does not respons??
+  margin: 60px 20px 40px 20px;
+  pading: 5px;
+}
+
+th{
+  font-variant: small-caps;
+}
+
+tr{
+
+}
+
+tr:hover {
+   background-color: #F4ABF7;
+}
+
+td{
+  width: 120px;
+  padding: 4px;
+}
+
+/*******************************************************************/
+/*******************************************************************/
+/********************* New Send MAil Form ****************************/
+/*******************************************************************/
+/*******************************************************************/
+
+div#AddSendMail{
+ // display: none;
+  padding: 20px;
+  color: #520955;
+  background:rgb(240,240,240);
+}
+
+
+
+
+
 
 /*******************************************************************/
 /*******************************************************************/
@@ -270,7 +352,6 @@ div.quickaddForm {
     width:80%;
     height:10px;
     float:left;
-    font-family:sans-serif;
     font-size:12px;
     padding:5px;
     margin-left: 10px;
@@ -286,7 +367,8 @@ div.quickaddForm {
     box-shadow:inset 0px 0px 10px rgba(0,0,0,0.2);
 }
 
-button#Add,#Cancel {
+button#Add, #Cancel {
+    background-color: #F6DCF7;
     color: #520955;
     padding:10px;
     margin:0px 20px 20px 20px;
@@ -298,13 +380,18 @@ button#Add,#Cancel {
     outline: none; // remove blue border in chroome
 }
 
+button#Add:hover, #Cancel:hover{
+  background-color: #F4ABF7;
+}
+
 // *********************************************************//
 // ********  Contacts to show in the JS loop  **************//
 // *********************************************************//
 // *********************************************************//
 
-div.addbook{
+div#addbook{
   border: 2px solid black;
+  display: none;
 }
 
 .entry {
@@ -357,9 +444,7 @@ div.addbook{
 
 .entry p {
     margin:0px;
-    font-family:sans-serif;
     font-size:12px;
-    text-shadow:0px 0px 1px rgba(0,0,0,0.4);
 }
 
 .entry .change {
@@ -375,7 +460,6 @@ div.addbook{
 }
 
 a.changebutton {
-    font-family:sans-serif;
     font-variant: small-caps;
     color:#FFF;
     font-size:12px;
@@ -389,7 +473,6 @@ a.changebutton {
 }
 
 a.delbutton {
-    font-family:sans-serif;
     font-variant: small-caps;
     color:#FFF;
     font-size:12px;
@@ -410,3 +493,4 @@ a.delbutton {
 .changebutton:active, .delbutton:active{
  outline: none; // remove blue border in chroome
 }
+
