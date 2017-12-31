@@ -142,7 +142,9 @@ window.onload = function(){
 		var check = confirm("Are you sure you want to delete ALL contacts?");
         if (check == true) { 
         	// empty the array	
+           	localStorage.clear();
            	localStorage['addbook'] = [];
+           	location.reload();
            	alert("All contacts deleted");
            	pageSettingsDiv.style.display = "none";
        	 }
