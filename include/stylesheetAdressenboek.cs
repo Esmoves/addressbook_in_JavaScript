@@ -494,3 +494,49 @@ a.delbutton {
  outline: none; // remove blue border in chroome
 }
 
+/*Responsive Styles*/
+@media only screen and (max-width: 500px){
+  div#btn1 {
+  top: 150px;
+  }
+
+  div#btn2 {
+    top: 200px;
+  }
+
+  div#btn3 {
+    top: 250px;
+  }
+
+  div.button {
+    border: 2px solid black;
+    background-color: #F4ABF7;
+    border-radius: 30px;
+    width: 160px;
+    height: 30px;
+    position: fixed;
+    left: -140px;
+    transition: .7s ease;
+    -webkit-transition-duration: 0.7s; /* Safari */
+  }
+
+  div.button:hover {
+    background-color: #F4ABF7;
+    position: fixed;
+    left: -70px;
+    width: 250px;
+    border-radius: 0px;
+    box-shadow: 0px 5px 0px #6E4970;
+  }
+
+  div.button:active {
+    background-color: #F4ABF7;
+    position: fixed;
+    left: -140px;
+    width: 160px;
+    border-radius: 0px;
+    box-shadow: 0px 5px 0px #6E4970;
+    transition: .7s ease;
+    -webkit-transition-duration: 0.7s; /* Safari */
+  }
+}
