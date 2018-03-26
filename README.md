@@ -1,18 +1,9 @@
-# adressboek_codegorilla
+# addressboek in JavaScript
 CodeGorilla assignment
 
-To do:
+This addresbook is completely written in JavaScript, HTML5 and CSS3. 
 
-Edit form.
-Send Mail form.
-Sort and Search Send Mail
-Search contacts
-
-Find the div problem and fix it.
-Find the IE problem and fis it.
-
-
-Working:
+It contains:
 
 Main menu
 Side menu
@@ -23,3 +14,7 @@ pushing contacts in localstorage
 deleting contacts per item 
 deleting all contacts
 Show adressbook
+
+<img src="./images/adressbook_contacts.png" alt="screenshot of the app showing all contacts">
+<img src="./images/adressbook_form.png" alt="screenshot of the app showing the upload form">
+<img src="./images/adressbook_page.png" alt="screenshot of the app showing a contact">
